@@ -17,11 +17,11 @@ while total_pile > 0:
             pick = 1
             print('I, smart computer, takes the last stick.')
             break
-        elif total_pile == 2 or 5 or 8 or 11 or 14 or 17 or 20:
-            pick = 1
-            print('I take %d stick, there are %d sticks in the pile.' %(pick,total_pile-pick))
-        elif total_pile == 3:
+        elif total_pile%3 == 0:
             pick = 2
+            print('I take %d stick, there are %d sticks in the pile.' %(pick,total_pile-pick))
+        elif total_pile == 2:
+            pick = 1
             print('I take %d stick, there are %d sticks in the pile.' %(pick,total_pile-pick))
         else:
             import random
@@ -35,7 +35,6 @@ while total_pile > 0:
         if 0 < pick <= 2:
             if total_pile - pick < 0:
                 print('There are no enough sticks to take')
-                player2 = True
             else:
                 if total_pile == 1:
                     print('You take the last stick,')
@@ -46,12 +45,8 @@ while total_pile > 0:
                 total_pile = total_pile - pick
         elif pick > 2:
             print('No you cannot take more than 2 sticks!')
-            player2 = True
-            print()
         elif pick < 1:
             print('No you cannot take more less than 1 sticks!')
-            player2 = True
-            print()
     player2 = not player2
     i = i + 1
 
